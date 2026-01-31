@@ -49,7 +49,7 @@ M.preview_win = true
 ---@field item PickerItem
 function M.preview(item, win, buf)
 	local line = vim.api.nvim_win_get_cursor(item.win)[1]
-	previewer.lines = vim.api.nvim_buf_get_lines(vim.api.nvim_win_get_buf(item.win), 0, -1, false)
+	previewer.buflines = vim.api.nvim_buf_get_lines(vim.api.nvim_win_get_buf(item.win), 0, -1, false)
 	previewer.filetype = vim.api.nvim_get_option_value("filetype", { buf = vim.api.nvim_win_get_buf(item.win) })
 	previewer.preview(line, win, buf, true)
 end
