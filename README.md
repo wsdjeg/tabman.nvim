@@ -11,3 +11,17 @@ require("plug").add({ {
 	"wsdjeg/tabman.nvim",
 } })
 ```
+
+### Picker tabman
+
+tabman.nvim also provides a `tabman` source for picker.nvim. which can be opened via `:Picker tabman`.
+
+key bindings for picker mru extension:
+
+| Key Binding | Description                            |
+| ----------- | -------------------------------------- |
+| `<Enter>`   | switch to select window        |
+
+```lua
+vim.api.nvim_set_keymap('n', '<leader>t', ':Picker tabman<CR>', { noremap = true, silent = true })
+```
