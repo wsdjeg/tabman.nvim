@@ -1,6 +1,9 @@
 # tabman.nvim
 
-This plugin provides a way to navigate between tabs and windows they contain.
+A lightweight tab and window manager for Neovim.
+
+tabman.nvim provides an interactive view to navigate, inspect, and
+manage tabpages and the windows they contain.
 
 [![GitHub License](https://img.shields.io/github/license/wsdjeg/tabman.nvim)](LICENSE)
 [![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/wsdjeg/tabman.nvim)](https://github.com/wsdjeg/tabman.nvim/issues)
@@ -31,9 +34,12 @@ require("plug").add({ {
 
 ## Usage
 
-This plugin provides a `:Tabman` command, It will open a tab manager windows.
+tabman.nvim provides the `:Tabman` command.
 
-In the tab manager windows, the following key bindings can be used:
+It opens an interactive tab manager window that shows all tabpages and
+the windows inside each tab.
+
+Key bindings in the tab manager window:
 
 | Key binding | Description              |
 | ----------- | ------------------------ |
@@ -44,7 +50,14 @@ In the tab manager windows, the following key bindings can be used:
 
 ## Picker tabman
 
-tabman.nvim also provides a `tabman` source for picker.nvim. which can be opened via `:Picker tabman`.
+tabman.nvim also provides a `tabman` source for
+[picker.nvim](https://github.com/wsdjeg/picker.nvim).
+
+You can open it with:
+
+```
+:Picker tabman
+```
 
 key bindings for picker mru extension:
 
@@ -52,8 +65,15 @@ key bindings for picker mru extension:
 | ----------- | ----------------------- |
 | `<Enter>`   | switch to select window |
 
+Example mapping:
+
 ```lua
-vim.api.nvim_set_keymap('n', '<leader>t', ':Picker tabman<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap(
+  'n',
+  '<leader>t',
+  ':Picker tabman<CR>',
+  { noremap = true, silent = true }
+)
 ```
 
 ## Credits
@@ -63,11 +83,12 @@ vim.api.nvim_set_keymap('n', '<leader>t', ':Picker tabman<CR>', { noremap = true
 
 ## Self-Promotion
 
-Like this plugin? Star the repository on
-GitHub.
+If you find this plugin useful, please consider starring it on GitHub.
 
-Love this plugin? Follow [me](https://wsdjeg.net/) on
-[GitHub](https://github.com/wsdjeg).
+You can also follow me at:
+
+- Website: [wsdjeg.net](https://wsdjeg.net/)
+- GitHub: [@wsdjeg](https://github.com/wsdjeg)
 
 ## License
 
