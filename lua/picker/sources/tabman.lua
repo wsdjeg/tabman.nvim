@@ -13,7 +13,7 @@ end
 
 function M.get()
 	local windows = vim.tbl_filter(function(win)
-		return #vim.api.nvim_win_get_config(win).relative > 0
+		return #vim.api.nvim_win_get_config(win).relative == 0
 	end, vim.api.nvim_list_wins())
 
 	return vim.tbl_map(function(win)
