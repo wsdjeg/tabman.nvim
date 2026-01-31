@@ -11,6 +11,8 @@ manage tabpages and the windows they contain.
 [![GitHub Release](https://img.shields.io/github/v/release/wsdjeg/tabman.nvim)](https://github.com/wsdjeg/tabman.nvim/releases)
 [![luarocks](https://img.shields.io/luarocks/v/wsdjeg/tabman.nvim)](https://luarocks.org/modules/wsdjeg/tabman.nvim)
 
+![tabman.nvim](https://github.com/user-attachments/assets/5174378e-0386-4e34-b57c-bae206aef9c8)
+
 <!-- vim-markdown-toc GFM -->
 
 - [Installation](#installation)
