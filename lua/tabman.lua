@@ -118,11 +118,19 @@ function tabman.update_context()
       line = line .. ' ' .. tabman.workspace_directory(tabid)
       table.insert(buflines, line)
       table.insert(tabman.objs, { tabid = tabid })
-      for _, win in ipairs(vim.api.nvim_tabpage_list_wins(tabid)) do
+      for _, win in
+        ipairs(vim.tbl_filter(function(win)
+          return #vim.api.nvim_win_get_config(win).relative == 0
+        end, vim.api.nvim_tabpage_list_wins(tabid)))
+      do
         local buf = vim.api.nvim_win_get_buf(win)
         line = '  '
         if #vim.api.nvim_buf_get_name(buf) == 0 then
           line = line .. 'No Name'
+          local ft = vim.api.nvim_get_option_value('filetype', { buf = buf })
+          if #ft > 0 then
+            line = line .. string.format(' (%s)', ft)
+          end
         else
           line = line
             .. vim.fn.fnamemodify(vim.api.nvim_buf_get_name(buf), ':t')
