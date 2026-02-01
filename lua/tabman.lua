@@ -77,6 +77,9 @@ local function init_buffer()
     { callback = tabman.jump }
   )
   vim.api.nvim_buf_set_keymap(buf, 'n', 'x', '', { callback = tabman.close })
+  vim.api.nvim_buf_set_keymap(buf, 'n', 'q', '', { callback = function()
+    vim.cmd.close()
+  end })
   return buf
 end
 
