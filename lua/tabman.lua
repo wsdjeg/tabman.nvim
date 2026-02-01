@@ -77,9 +77,16 @@ local function init_buffer()
     { callback = tabman.jump }
   )
   vim.api.nvim_buf_set_keymap(buf, 'n', 'x', '', { callback = tabman.close })
-  vim.api.nvim_buf_set_keymap(buf, 'n', 'q', '', { callback = function()
-    vim.cmd.close()
-  end })
+  vim.api.nvim_buf_set_keymap(buf, 'n', 'q', '', {
+    callback = function()
+      vim.cmd.close()
+    end,
+  })
+  vim.api.nvim_create_autocmd({ 'BufEnter' }, {
+    callback = function() tabman.update_context() end,
+    buffer = buf,
+    group = vim.api.nvim_create_augroup('tabman', { clear = true }),
+  })
   return buf
 end
 
