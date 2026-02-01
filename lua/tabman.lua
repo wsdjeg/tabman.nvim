@@ -120,7 +120,16 @@ function tabman.update_context()
       table.insert(tabman.objs, { tabid = tabid })
       for _, win in
         ipairs(vim.tbl_filter(function(win)
-          return #vim.api.nvim_win_get_config(win).relative == 0
+          if tabman.filter then
+            local f = tabman.filter(win)
+            if f then
+              return vim.api.nvim_win_get_config(win).focusable
+            else
+              return false
+            end
+          else
+            return vim.api.nvim_win_get_config(win).focusable
+          end
         end, vim.api.nvim_tabpage_list_wins(tabid)))
       do
         local buf = vim.api.nvim_win_get_buf(win)
@@ -155,7 +164,11 @@ function tabman.update_context()
   vim.api.nvim_set_option_value('modifiable', false, { buf = bufferid })
 end
 
-function M.open()
+---@class tabman.OpenOpts
+---@field filter? fun(winid: integer): boolean
+
+---@param opts nil | tabman.OpenOpts
+function M.open(opts)
   if not vim.api.nvim_buf_is_valid(bufferid) then
     bufferid = init_buffer()
   end
@@ -168,6 +181,11 @@ function M.open()
     )
   then
     winid = init_windows(bufferid)
+  end
+  if opts and opts.filter and type(opts.filter) == 'function' then
+    tabman.filter = opts.filter
+  else
+    tabman.filter = nil
   end
   tabman.update_context()
 end

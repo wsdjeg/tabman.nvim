@@ -43,12 +43,23 @@ the windows inside each tab.
 
 Key bindings in the tab manager window:
 
-| Key binding | Description              |
-| ----------- | ------------------------ |
-| `q`         | close tab manager        |
-| `o`         | toggle expand tabpage    |
-| `x`         | delete tabpage           |
-| `<Enter>`   | jump to selected windows |
+| Key binding | Description                 |
+| ----------- | --------------------------- |
+| `q`         | Close the tab manager       |
+| `o`         | Toggle expand a tabpage     |
+| `x`         | Delete the tabpage          |
+| `<Enter>`   | Jump to the selected window |
+
+You can also open tabman from Lua, for example with a custom filter:
+
+```lua
+require('tabman').open({
+  filter = function(win)
+    local buf = vim.api.nvim_win_get_buf(win)
+    return vim.api.nvim_get_option_value('buflisted', { buf = buf })
+  end,
+})
+```
 
 ## Picker tabman
 
