@@ -1,0 +1,13 @@
+# Test dependencies (downloaded by install_deps.lua)
+test/.deps/
+
+# Swap files
+*.swp
+*.swo
+
+# Backup files
+*~
+
+# Temporary test files
+/tmp/tabman_nvim_test_*
+

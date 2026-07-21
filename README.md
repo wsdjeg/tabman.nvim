@@ -5,6 +5,7 @@ A lightweight tab and window manager for Neovim.
 tabman.nvim provides an interactive view to navigate, inspect, and
 manage tabpages and the windows they contain.
 
+[![Run Tests](https://github.com/wsdjeg/tabman.nvim/actions/workflows/test.yml/badge.svg)](https://github.com/wsdjeg/tabman.nvim/actions/workflows/test.yml)
 [![GitHub License](https://img.shields.io/github/license/wsdjeg/tabman.nvim)](LICENSE)
 [![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/wsdjeg/tabman.nvim)](https://github.com/wsdjeg/tabman.nvim/issues)
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/m/wsdjeg/tabman.nvim)](https://github.com/wsdjeg/tabman.nvim/commits/master/)
@@ -106,3 +107,4 @@ You can also follow me at:
 ## License
 
 This project is licensed under the GPL-3.0 License.
+
